@@ -359,6 +359,19 @@ a {
   padding-bottom: 110px;
   background: radial-gradient(circle at 50% -20%, rgba(37, 99, 235, 0.12) 0%, rgba(248, 250, 252, 0) 70%);
 }
+/* Configuração da Logo Transparente na Lateral Direita */
+.hero-bg-logo {
+  position: absolute;
+  top: 50%;
+  right: -5%; /* Puxa para a direita (valores negativos cortam um pedaço da logo, dando um efeito moderno) */
+  transform: translateY(-50%); /* Mantém centralizado apenas na vertical */
+  width: 90%;
+  max-width: 750px; /* Aumentado um pouco para preencher melhor a lateral do PC */
+  opacity: 0.04; 
+  z-index: 1; 
+  pointer-events: none; 
+  user-select: none; 
+}
 
 .hero-bg-grid {
   position: absolute;
