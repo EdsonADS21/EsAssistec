@@ -24,16 +24,28 @@ function runIntroAnimation() {
   }, 1000);
 }
 
-// CORREÇÃO: Dispara a intro e a malha 3D juntas apenas quando a página carregar 100%
-window.addEventListener('load', () => {
-  runIntroAnimation();
-  initWaveBackground();
-});
+// 1. Inicia a Splash Screen de forma independente
+window.addEventListener('load', runIntroAnimation);
 setTimeout(runIntroAnimation, 1800); // Fallback de segurança
 
-/**
- * 2. Inicialização dos Componentes
- */
+// 2. Sistema à prova de falhas para garantir o carregamento do Three.js
+function checkAndStartThreeJS() {
+  const canvas = document.getElementById('hero-wave-canvas');
+  if (!canvas) return; // Cancela se a tag não existir no HTML
+
+  // Verifica se a biblioteca 3D já terminou de baixar
+  if (typeof THREE === 'undefined') {
+    // Se não baixou, tenta novamente em 100 milissegundos
+    setTimeout(checkAndStartThreeJS, 100);
+  } else {
+    // A biblioteca carregou! Inicia a malha com segurança
+    initWaveBackground();
+  }
+}
+
+// Dispara a verificação inteligente
+checkAndStartThreeJS();
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initMobileMenu();
