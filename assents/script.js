@@ -3,7 +3,7 @@
  * PROJETO: Portfólio & Soluções Digitais (ES Assistec)
  * ARQUIVO: script.js
  * DESCRIÇÃO: Controlador do Intro Splash, Menu Mobile, Navbar, Scroll Reveal,
- *             Rolagem Suave e Modal de Contato.
+ *             Rolagem Suave, Modal de Contato e Three.js.
  * ==============================================================================
  */
 
@@ -23,11 +23,14 @@ function runIntroAnimation() {
     }, 700);
   }, 1000);
 }
+
+// CORREÇÃO: Dispara a intro e a malha 3D juntas apenas quando a página carregar 100%
 window.addEventListener('load', () => {
   runIntroAnimation();
-  initWaveBackground(); // Inicia a malha com dimensões reais e o THREE já carregado
+  initWaveBackground();
 });
-setTimeout(runIntroAnimation, 1800);
+setTimeout(runIntroAnimation, 1800); // Fallback de segurança
+
 /**
  * 2. Inicialização dos Componentes
  */
@@ -37,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initSmoothScroll();
   initContactModal();
-  // REMOVIDO: initWaveBackground(); 
+  // initWaveBackground foi removido daqui para evitar o erro da biblioteca "undefined"
 });
 
 /**
@@ -101,19 +104,16 @@ function initMobileMenu() {
   menuBtn.addEventListener('click', toggleMenu);
   backdrop.addEventListener('click', closeMenu);
 
-  // Fecha o menu ao clicar em qualquer item
   navLinks.forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 
-  // Fecha ao pressionar ESC
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navMenu.classList.contains('is-active')) {
       closeMenu();
     }
   });
 
-  // Fecha ao redimensionar para Desktop
   window.addEventListener('resize', () => {
     if (window.innerWidth > 768 && navMenu.classList.contains('is-active')) {
       closeMenu();
@@ -248,7 +248,6 @@ function initWaveBackground() {
 
   // Configuração da Cena e Câmera
   const scene = new THREE.Scene();
-  // Câmera posicionada para dar uma sensação de amplitude
   const camera = new THREE.PerspectiveCamera(60, heroSection.clientWidth / heroSection.clientHeight, 0.1, 1000);
   camera.position.set(0, 5, 12);
   camera.lookAt(0, 0, 0);
@@ -260,35 +259,45 @@ function initWaveBackground() {
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // Responsividade
+  // CORREÇÃO: Responsividade adaptada para Celular (Câmera e Size)
   function resize() {
     const width = heroSection.clientWidth;
     const height = heroSection.clientHeight;
-    renderer.setSize(width, height);
+    
+    // Passando "false" o renderer.setSize NÃO sobrescreve o CSS inline
+    renderer.setSize(width, height, false); 
     camera.aspect = width / height;
+    
+    // Afasta a câmera no celular para a malha caber na tela vertical
+    if (width < 768) {
+      camera.position.z = 20; // Câmera mais longe
+      camera.position.y = 8;  // Câmera mais alta
+    } else {
+      camera.position.z = 12; // Padrão PC
+      camera.position.y = 5;
+    }
+    
     camera.updateProjectionMatrix();
   }
   window.addEventListener('resize', resize);
   resize();
 
-  // Criação da Malha (Grid 3D)
-  // Um plano grande com muitos segmentos para formar ondas suaves
+  // Criação da Malha
   const geometry = new THREE.PlaneGeometry(60, 60, 45, 45);
   
-  // Material em estilo "Wireframe" Tecnológico
+  // CORREÇÃO: Material mais visível para o celular
   const material = new THREE.MeshBasicMaterial({
-    color: 0x06b6d4, // Cyan da sua paleta (var(--color-brand-cyan))
+    color: 0x06b6d4, // Cyan
     wireframe: true,
     transparent: true,
-    opacity: 0.15 // BEM SUTIL para não atrapalhar o texto
+    opacity: 0.35 // Aumentado para 0.35 (antes era 0.15)
   });
 
   const plane = new THREE.Mesh(geometry, material);
-  plane.rotation.x = -Math.PI / 2; // Deita o plano como se fosse o chão
-  plane.position.y = -4; // Rebaixa o plano para ficar mais abaixo da tela
+  plane.rotation.x = -Math.PI / 2;
+  plane.position.y = -4; 
   scene.add(plane);
 
-  // Armazena as posições originais dos vértices para o cálculo da onda
   const positionAttribute = geometry.attributes.position;
   const vertexCount = positionAttribute.count;
 
@@ -299,24 +308,18 @@ function initWaveBackground() {
     requestAnimationFrame(animate);
     const elapsedTime = clock.getElapsedTime();
 
-    // Criação do efeito de onda fluida
     for (let i = 0; i < vertexCount; i++) {
       const x = positionAttribute.getX(i);
       const y = positionAttribute.getY(i);
       
-      // Matemática da onda combinando Seno e Cosseno baseados no tempo
       const z = Math.sin(x * 0.2 + elapsedTime * 0.6) * 1.5 + 
                 Math.cos(y * 0.2 + elapsedTime * 0.6) * 1.5;
                 
       positionAttribute.setZ(i, z);
     }
     
-    // Alerta o Three.js que a geometria foi modificada frame a frame
     positionAttribute.needsUpdate = true;
-
-    // Rotação lenta da malha inteira para dar um efeito mais dinâmico
     plane.rotation.z = elapsedTime * 0.03;
-
     renderer.render(scene, camera);
   }
   

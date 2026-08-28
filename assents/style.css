@@ -1251,7 +1251,6 @@ a {
   .mobile-floating-alt { left: 0px; }
   .mobile-screen { height: 160px; }
 }
-
 /* ==============================================================================
    14. THREE.JS - MALHA ONDULANTE DE FUNDO (NOVO)
    ============================================================================== */
@@ -1263,5 +1262,7 @@ a {
   height: 100%;
   z-index: 1; /* Atrás do conteúdo (.hero-content tem z-index 2) */
   pointer-events: none; /* Não interfere no clique ou seleção de texto */
-  opacity: 0.6; /* Deixa sutil para a leitura do texto perfeita */
+  opacity: 0.8; /* Ajustado para 0.8 para aparecer bem no celular */
+  display: block; /* Evita bordas/margens fantasmas no canvas */
+  transform: translateZ(0); /* Força o uso da Placa de Vídeo em dispositivos móveis */
 }
