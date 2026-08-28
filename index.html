@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio de Soluções Web, Landing Pages de Alta Conversão e Ferramentas Customizadas." />
+  <title>ES Assistec — Soluções Web &amp; Desenvolvimento</title>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="/assents/logo.svg" />
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Folha de Estilos Customizada -->
+  <link rel="stylesheet" href="/assents/style.css"/>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- ========================================================= -->
+  <!-- 1. ANIMAÇÃO DE ABERTURA COM A LOGO (INTRO SPLASH)         -->
+  <!-- ========================================================= -->
+  <div id="intro-splash" class="intro-splash-overlay" aria-hidden="true">
+    <div class="intro-splash-glow"></div>
+    <div class="intro-splash-logo">
+      <img src="/assents/logo.svg" alt="ES Assistec" class="intro-logo-img" />
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 2. CABEÇALHO / NAVBAR DESKTOP & MOBILE                    -->
+  <!-- ========================================================= -->
+  <header id="main-header" class="site-header">
+    <div class="container nav-container">
+      
+      <!-- Marca / Logo -->
+      <a href="#inicio" class="nav-brand" aria-label="Página Inicial">
+        <div class="nav-logo-box">
+          <img src="/assents/logo.svg" alt="Logo ES Assistec" class="nav-logo-img" />
+        </div>
+        <span class="nav-brand-title">ES Assistec</span>
+      </a>
+
+      <!-- Botão Hambúrguer Mobile -->
+      <button type="button" id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+      </button>
+
+      <!-- Menu Principal (Desktop & Gaveta Mobile) -->
+      <nav id="nav-menu" class="nav-menu" aria-label="Navegação Principal">
+        <a href="#inicio" class="nav-link active">Início</a>
+        <a href="#projetos" class="nav-link">Projetos</a>
+        <a href="#diferenciais" class="nav-link">Diferenciais</a>
+        <a href="#contato" class="nav-link">Contato</a>
+        <button type="button" id="open-contact-btn" class="btn btn-primary btn-sm nav-cta-btn">
+          Fale Conosco
+        </button>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Overlay de fundo para o menu mobile -->
+  <div id="mobile-backdrop" class="mobile-menu-backdrop" aria-hidden="true"></div>
+
+  <main>
+    <!-- ======================================================= -->
+    <!-- 3. SEÇÃO HERO                                           -->
+    <!-- ======================================================= -->
+    <section id="inicio" class="hero-section">
+      <div class="hero-bg-grid"></div>
+      
+      <!-- CANVAS DA ANIMAÇÃO ONDULANTE (NOVO) -->
+      <canvas id="hero-wave-canvas"></canvas>
+      
+      <div class="container hero-content text-center">
+        <div class="badge-chip">
+          <i class="fa-solid fa-wand-magic-sparkles text-brand-blue"></i>
+          <span>Desenvolvimento Web &amp; Soluções Customizadas</span>
+        </div>
+
+        <h1 class="hero-title">
+          Construindo experiências digitais com <span class="text-gradient">elegância, precisão e velocidade</span>.
+        </h1>
+
+        <p class="hero-subtitle">
+          Criamos landing pages de alta conversão, sites institucionais modernos e extensões corporativas sob medida para alavancar a produtividade do seu negócio.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projetos" class="btn btn-primary btn-lg">
+            <span>Ver Projetos</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="https://wa.me/5531993182624?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20projeto." target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">
+            <i class="fa-brands fa-whatsapp text-brand-blue"></i>
+            <span>Solicitar Orçamento</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- 4. SEÇÃO DE PROJETOS                                    -->
+    <!-- ======================================================= -->
+    <section id="projetos" class="projects-section">
+      <div class="container">
+        
+        <div class="section-header" data-reveal>
+          <div>
+            <span class="section-tag">Portfólio em Destaque</span>
+            <h2 class="section-title">Nossos Trabalhos Recentes</h2>
+          </div>
+          <p class="section-desc">
+            Cada projeto é concebido unindo design responsivo, alta usabilidade e arquitetura de código otimizada.
+          </p>
+        </div>
+
+        <div class="projects-list">
+
+          <!-- PROJETO 1: BELLA MARES -->
+          <article class="project-card" data-reveal>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="tag tag-blue">Landing Page</span>
+                <span class="tag">Turismo &amp; Hospedagem</span>
+              </div>
+              <h3 class="project-title">Bella Mares — Refúgio a Passos do Mar</h3>
+              <p class="project-description">
+                Landing page imersiva desenvolvida para aluguel de temporada em Cabo Frio - RJ. Desenvolvida com design moderno em azul profundo, tipografia clean, galeria de acomodações e botão de conversão direta via Airbnb e WhatsApp.
+              </p>
+              
+              <div class="project-action-area">
+                <a href="https://dunnasbellamares.com.br" target="_blank" rel="noopener noreferrer" class="link-external">
+                  <span>Visitar site ao vivo</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-showcase">
+              <div class="laptop-device">
+                <div class="laptop-top-bar">
+                  <div class="window-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                  </div>
+                  <span class="browser-address">dunnasbellamares.com.br</span>
+                </div>
+                <div class="laptop-screen">
+                  <img src="/assents/images/dunnasbellamares.png" alt="Preview Desktop do Site Bella Mares" class="preview-img" />
+                </div>
+                <div class="laptop-chassis"></div>
+              </div>
+
+              <div class="mobile-device mobile-floating">
+                <div class="mobile-notch"></div>
+                <div class="mobile-screen">
+                  <img src="/assents/images/dunnasbellamares-mobile.png" alt="Preview Mobile do Site Bella Mares" class="preview-img" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJETO 2: ESTÉTICA AUTOMOTIVA MILAGRES -->
+          <article class="project-card project-card-reverse" data-reveal>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="tag tag-blue">Site Institucional</span>
+                <span class="tag">Estética Automotiva</span>
+              </div>
+              <h3 class="project-title">Estética Automotiva Milagres</h3>
+              <p class="project-description">
+                Página institucional com visual dark premium sofisticado, destacando serviços de retoque, micropintura e polimento técnico em Florestal - MG. Estrutura focada em geração de leads comerciais com alta taxa de conversão.
+              </p>
+              
+              <div class="project-action-area">
+                <a href="https://millagres.com.br/" target="_blank" rel="noopener noreferrer" class="link-external">
+                  <span>Visitar site ao vivo</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-showcase">
+              <div class="laptop-device">
+                <div class="laptop-top-bar">
+                  <div class="window-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                  </div>
+                  <span class="browser-address">milagres.com.br</span>
+                </div>
+                <div class="laptop-screen">
+                  <img src="/assents/images/esteticamillagres.png" alt="Preview Desktop do Site Estética Milagres" class="preview-img" />
+                </div>
+                <div class="laptop-chassis"></div>
+              </div>
+
+              <div class="mobile-device mobile-floating mobile-floating-alt">
+                <div class="mobile-notch"></div>
+                <div class="mobile-screen">
+                  <img src="/assents/images/millagres-mobile.png" alt="Preview Mobile do Site Estética Milagres" class="preview-img" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJETO 3: AUTO PREENCHER - BR SUPER -->
+          <article class="project-card project-card-dark" data-reveal>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="tag tag-cyan">Extensão de Navegador</span>
+                <span class="tag tag-dark">Produtividade Operacional</span>
+              </div>
+              
+              <h3 class="project-title text-white1">Auto Preencher — Br Super</h3>
+              
+              <p class="project-description text-slate-300">
+                Extensão criada para facilitar preenchimentos de scripts de registro de atendimento. Acelera os processos do time de suporte com preenchimento automatizado de ordens, atalhos de rede (LOS, PON, Roteadores) e painel integrado com Copiloto IA.
+              </p>
+
+              <div class="internal-software-badge">
+                <i class="fa-solid fa-desktop text-cyan-400"></i>
+                <span>Software de uso interno corporativo (Exclusivo para Desktop / Navegador)</span>
+              </div>
+            </div>
+
+            <div class="project-showcase showcase-full-desktop">
+              <div class="laptop-device laptop-dark">
+                <div class="laptop-top-bar bar-dark">
+                  <div class="window-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                  </div>
+                  <span class="browser-address font-mono">painel.brsuper.local/extensao</span>
+                </div>
+                <div class="laptop-screen screen-dark">
+                  <img src="/assents/images/extensãobrsuper.png" alt="Interface da Extensão Auto Preencher para Br Super" class="preview-img" />
+                </div>
+                <div class="laptop-chassis chassis-dark"></div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- 5. SEÇÃO DE DIFERENCIAIS (6 CARDS DESIGN DARK)          -->
+    <!-- ======================================================= -->
+    <section id="diferenciais" class="features-section">
+      <div class="container">
+        
+        <div class="section-center-header" data-reveal>
+          <h2 class="section-title-large text-white1">
+            Como um site <span class="text-gradient">profissional</span> ajuda seu negócio?
+          </h2>
+          <p class="section-subtitle-dark">
+            Investir em presença digital não é gasto, é investimento com retorno real.
+          </p>
+        </div>
+
+        <div class="features-dark-grid">
+          
+          <div class="feature-dark-card" data-reveal>
+            <div class="feature-dark-icon">
+              <i class="fa-solid fa-shield-halved text-blue-400"></i>
+            </div>
+            <h3 class="feature-dark-title">Mais Credibilidade</h3>
+            <p class="feature-dark-text">Passe confiança e profissionalismo para seus clientes com um site bem estruturado.</p>
+          </div>
+
+          <div class="feature-dark-card" data-reveal>
+            <div class="feature-dark-icon">
+              <i class="fa-regular fa-clock text-blue-400"></i>
+            </div>
+            <h3 class="feature-dark-title">Vendas 24h</h3>
+            <p class="feature-dark-text">Seu negócio funcionando mesmo enquanto você dorme, gerando leads e vendas.</p>
+          </div>
+
+          <div class="feature-dark-card" data-reveal>
+            <div class="feature-dark-icon">
+              <i class="fa-solid fa-magnifying-glass text-blue-400"></i>
+            </div>
+            <h3 class="feature-dark-title">Aparição no Google</h3>
+            <p class="feature-dark-text">Seja encontrado por quem realmente procura seus serviços com SEO otimizado.</p>
+          </div>
+
+          <div class="feature-dark-card" data-reveal>
+            <div class="feature-dark-icon">
+              <i class="fa-solid fa-palette text-blue-400"></i>
+            </div>
+            <h3 class="feature-dark-title">Identidade Visual Forte</h3>
+            <p class="feature-dark-text">Mostre a cara da sua marca com clareza, impacto e diferenciação.</p>
+          </div>
+
+          <div class="feature-dark-card" data-reveal>
+            <div class="feature-dark-icon">
+              <i class="fa-solid fa-database text-blue-400"></i>
+            </div>
+            <h3 class="feature-dark-title">Centralização das Informações</h3>
+            <p class="feature-dark-text">Tudo do seu negócio em um só lugar, organizado e acessível.</p>
+          </div>
+
+          <div class="feature-dark-card" data-reveal>
+            <div class="feature-dark-icon">
+              <i class="fa-solid fa-users text-blue-400"></i>
+            </div>
+            <h3 class="feature-dark-title">Mais Clientes</h3>
+            <p class="feature-dark-text">Atraia novos contatos de forma automática e escale seu negócio.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- 6. SEÇÃO CONTATO (HUB DE ATENDIMENTO)                   -->
+    <!-- ======================================================= -->
+    <section id="contato" class="contact-section">
+      <div class="container">
+        
+        <div class="section-center-header" data-reveal>
+          <span class="section-tag-cyan">CONTATO</span>
+          <h2 class="hero-title">
+            Nossos Canais de <span class="text-gradient">Atendimento</span>
+          </h2>
+          <p class="section-subtitle-dark">
+            Solicite um orçamento e descubra como podemos te ajudar a ter um site profissional que converte!
+          </p>
+        </div>
+
+        <div class="contact-hub-grid" data-reveal>
+          
+          <a href="https://wa.me/5531993182624" target="_blank" rel="noopener noreferrer" class="contact-info-card">
+            <div class="contact-info-icon">
+              <i class="fa-brands fa-whatsapp text-blue-400"></i>
+            </div>
+            <div class="contact-info-text">
+              <span class="info-label">WhatsApp</span>
+              <span class="info-val">(31) 9 9318-2624</span>
+            </div>
+          </a>
+
+          <a href="https://instagram.com/es_assistec" target="_blank" rel="noopener noreferrer" class="contact-info-card">
+            <div class="contact-info-icon">
+              <i class="fa-brands fa-instagram text-blue-400"></i>
+            </div>
+            <div class="contact-info-text">
+              <span class="info-label">Instagram</span>
+              <span class="info-val">@es_assistec</span>
+            </div>
+          </a>
+
+          <a href="mailto:contatoedsonpr@gmail.com" class="contact-info-card">
+            <div class="contact-info-icon">
+              <i class="fa-solid fa-envelope text-blue-400"></i>
+            </div>
+            <div class="contact-info-text">
+              <span class="info-label">E-mail</span>
+              <span class="info-val">contatoedsonpr@gmail.com</span>
+            </div>
+          </a>
+
+          <div class="quick-response-card">
+            <div class="quick-response-header">
+              <div class="quick-response-icon">
+                <i class="fa-solid fa-bolt text-blue-400"></i>
+              </div>
+              <div>
+                <h4 class="quick-response-title">Resposta Rápida</h4>
+                <p class="quick-response-desc">Prefere uma resposta imediata? Chame direto no WhatsApp!</p>
+              </div>
+            </div>
+            <a href="https://wa.me/5531993182624?text=Ol%C3%A1!%20Gostaria%20de%20um%20atendimento%20r%C3%A1pido." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-quick-wa">
+              Chamar no WhatsApp
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- 7. RODAPÉ (FUNDO BRANCO)                                  -->
+  <!-- ========================================================= -->
+  <footer class="site-footer-light">
+    <div class="container">
+      
+      <div class="footer-top-row">
+        <div class="footer-brand-block">
+          <div class="footer-logo-line">
+            <div class="footer-logo-box">
+              <img src="/assents/logo.svg" alt="Logo ES Assistec" class="nav-logo-img" />
+            </div>
+            <span class="footer-brand-title">ES Assistec</span>
+          </div>
+          <p class="footer-tagline">
+            Transforme suas ideias em presença digital. Sites modernos, rápidos e profissionais para destacar seu negócio.
+          </p>
+        </div>
+
+        <div class="footer-social-icons">
+          <a href="https://wa.me/5531993182624" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://instagram.com/es_assistec" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">
+          © 2026 ES Assistec - Todos os direitos reservados.
+        </p>
+        <a href="politica-de-privacidade.html" class="footer-privacy-link">
+          Políticas de Privacidade
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- 8. MODAL: FORMULÁRIO FALE CONOSCO                         -->
+  <!-- ========================================================= -->
+  <div id="contact-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-card">
+      
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-title text-white1">Fale Conosco</h3>
+        <button type="button" id="close-contact-btn" class="modal-close-btn" aria-label="Fechar janela">
+          <i class="fa-solid fa-xmark text-slate-300"></i>
+        </button>
+      </div>
+
+      <form id="contact-form" class="dark-form">
+        <div class="form-group">
+          <label for="name" class="form-label-dark">Nome</label>
+          <input type="text" id="name" name="name" class="form-input-dark" placeholder="Seu nome completo" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone" class="form-label-dark">Telefone</label>
+          <input type="tel" id="phone" name="phone" class="form-input-dark" placeholder="(00) 0 0000-0000" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="form-label-dark">Mensagem</label>
+          <textarea id="message" name="message" rows="4" class="form-textarea-dark" placeholder="Conte-nos sobre seu projeto..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-submit-full">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>Enviar Mensagem</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- THREE.JS - MALHA ONDULANTE (NOVO)                         -->
+  <!-- ========================================================= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Script Modular -->
+  <script src="/assents/script.js"></script>
+</body>
+</html>
