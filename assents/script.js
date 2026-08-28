@@ -23,10 +23,11 @@ function runIntroAnimation() {
     }, 700);
   }, 1000);
 }
-
-window.addEventListener('load', runIntroAnimation);
+window.addEventListener('load', () => {
+  runIntroAnimation();
+  initWaveBackground(); // Inicia a malha com dimensões reais e o THREE já carregado
+});
 setTimeout(runIntroAnimation, 1800);
-
 /**
  * 2. Inicialização dos Componentes
  */
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initSmoothScroll();
   initContactModal();
-  initWaveBackground(); // <-- NOVA CHAMADA AQUI
+  // REMOVIDO: initWaveBackground(); 
 });
 
 /**
