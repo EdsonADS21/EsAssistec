@@ -17,8 +17,8 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- Folha de Estilos Customizada -->
-  <link rel="stylesheet" href="/assents/style.css?v=2.0"/>
+  <!-- Folha de Estilos Customizada (Com quebra de cache v3.0) -->
+  <link rel="stylesheet" href="/assents/style.css?v=3.0"/>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
@@ -75,9 +75,6 @@
     <section id="inicio" class="hero-section">
       <div class="hero-bg-grid"></div>
       
-      <!-- CANVAS DA ANIMAÇÃO ONDULANTE (NOVO) -->
-      <canvas id="hero-wave-canvas"></canvas>
-      
       <div class="container hero-content text-center">
         <div class="badge-chip">
           <i class="fa-solid fa-wand-magic-sparkles text-brand-blue"></i>
@@ -109,7 +106,12 @@
     <!-- 4. SEÇÃO DE PROJETOS                                    -->
     <!-- ======================================================= -->
     <section id="projetos" class="projects-section">
-      <div class="container">
+      
+      <!-- CANVAS DA ANIMAÇÃO MOVIDO PARA CÁ -->
+      <canvas id="projetos-wave-canvas"></canvas>
+
+      <!-- z-index 2 aplicado para o conteúdo ficar por cima da animação -->
+      <div class="container" style="position: relative; z-index: 2;">
         
         <div class="section-header" data-reveal>
           <div>
@@ -474,13 +476,12 @@
     </div>
   </div>
 
-
   <!-- ========================================================= -->
   <!-- THREE.JS - MALHA ONDULANTE (NOVO)                         -->
   <!-- ========================================================= -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
-  <!-- Script Modular -->
-<script src="/assents/script.js?v=2.0" defer></script>
+  <!-- Script Modular (Com quebra de cache v3.0) -->
+  <script src="/assents/script.js?v=3.0" defer></script>
 </body>
 </html>

@@ -24,13 +24,15 @@ function runIntroAnimation() {
   }, 1000);
 }
 
-// 1. Inicia a Splash Screen de forma independente
+// Inicia a Splash Screen de forma independente
 window.addEventListener('load', runIntroAnimation);
 setTimeout(runIntroAnimation, 1800); // Fallback de segurança
 
-// 2. Sistema à prova de falhas para garantir o carregamento do Three.js
+/**
+ * 2. Sistema à prova de falhas para garantir o carregamento do Three.js
+ */
 function checkAndStartThreeJS() {
-  const canvas = document.getElementById('hero-wave-canvas');
+  const canvas = document.getElementById('projetos-wave-canvas');
   if (!canvas) return; // Cancela se a tag não existir no HTML
 
   // Verifica se a biblioteca 3D já terminou de baixar
@@ -46,17 +48,19 @@ function checkAndStartThreeJS() {
 // Dispara a verificação inteligente
 checkAndStartThreeJS();
 
+/**
+ * 3. Inicialização dos Componentes
+ */
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initMobileMenu();
   initScrollReveal();
   initSmoothScroll();
   initContactModal();
-  // initWaveBackground foi removido daqui para evitar o erro da biblioteca "undefined"
 });
 
 /**
- * 3. Elevação da Navbar ao rolar a página
+ * 4. Elevação da Navbar ao rolar a página
  */
 function initHeaderScroll() {
   const header = document.getElementById('main-header');
@@ -75,7 +79,7 @@ function initHeaderScroll() {
 }
 
 /**
- * 4. Controle da Navbar Mobile (Menu Hambúrguer & Gaveta)
+ * 5. Controle da Navbar Mobile (Menu Hambúrguer & Gaveta)
  */
 function initMobileMenu() {
   const menuBtn = document.getElementById('mobile-menu-btn');
@@ -134,7 +138,7 @@ function initMobileMenu() {
 }
 
 /**
- * 5. Animação de Scroll Reveal
+ * 6. Animação de Scroll Reveal
  */
 function initScrollReveal() {
   const elements = document.querySelectorAll('[data-reveal]');
@@ -161,7 +165,7 @@ function initScrollReveal() {
 }
 
 /**
- * 6. Rolagem Suave com Compensação da Altura do Header
+ * 7. Rolagem Suave com Compensação da Altura do Header
  */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -185,7 +189,7 @@ function initSmoothScroll() {
 }
 
 /**
- * 7. Controle do Modal de Contato (WhatsApp)
+ * 8. Controle do Modal de Contato (WhatsApp)
  */
 function initContactModal() {
   const modal = document.getElementById('contact-modal');
@@ -249,18 +253,18 @@ function initContactModal() {
 
 /**
  * ==============================================================================
- * 8. THREE.JS - Malha Cibernética Ondulante no Hero (NOVO)
+ * 9. THREE.JS - Malha Cibernética Ondulante na Seção Projetos
  * ==============================================================================
  */
 function initWaveBackground() {
-  const canvas = document.getElementById('hero-wave-canvas');
+  const canvas = document.getElementById('projetos-wave-canvas');
   if (!canvas || typeof THREE === 'undefined') return;
 
-  const heroSection = document.getElementById('inicio');
+  const targetSection = document.getElementById('projetos');
 
   // Configuração da Cena e Câmera
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, heroSection.clientWidth / heroSection.clientHeight, 0.1, 1000);
+  const camera = new THREE.PerspectiveCamera(60, targetSection.clientWidth / targetSection.clientHeight, 0.1, 1000);
   camera.position.set(0, 5, 12);
   camera.lookAt(0, 0, 0);
 
@@ -271,10 +275,10 @@ function initWaveBackground() {
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // CORREÇÃO: Responsividade adaptada para Celular (Câmera e Size)
+  // Responsividade adaptada para Celular e para a Seção de Projetos
   function resize() {
-    const width = heroSection.clientWidth;
-    const height = heroSection.clientHeight;
+    const width = targetSection.clientWidth;
+    const height = targetSection.clientHeight;
     
     // Passando "false" o renderer.setSize NÃO sobrescreve o CSS inline
     renderer.setSize(width, height, false); 
@@ -297,12 +301,12 @@ function initWaveBackground() {
   // Criação da Malha
   const geometry = new THREE.PlaneGeometry(60, 60, 45, 45);
   
-  // CORREÇÃO: Material mais visível para o celular
+  // Material mais visível para o celular
   const material = new THREE.MeshBasicMaterial({
     color: 0x06b6d4, // Cyan
     wireframe: true,
     transparent: true,
-    opacity: 0.35 // Aumentado para 0.35 (antes era 0.15)
+    opacity: 0.35 // Aumentado para visibilidade na cor clara da seção de projetos
   });
 
   const plane = new THREE.Mesh(geometry, material);

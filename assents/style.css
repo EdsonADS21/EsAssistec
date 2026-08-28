@@ -416,6 +416,8 @@ a {
 .projects-section {
   padding-top: 6rem;
   padding-bottom: 6rem;
+  position: relative; /* Mantém o canvas preso dentro desta seção */
+  overflow: hidden;   /* Impede que a animação vaze para as seções vizinhas */
 }
 
 .section-header {
@@ -1251,18 +1253,19 @@ a {
   .mobile-floating-alt { left: 0px; }
   .mobile-screen { height: 160px; }
 }
+
 /* ==============================================================================
-   14. THREE.JS - MALHA ONDULANTE DE FUNDO (NOVO)
+   14. THREE.JS - MALHA ONDULANTE ATRÁS DOS PROJETOS (NOVO)
    ============================================================================== */
-#hero-wave-canvas {
+#projetos-wave-canvas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* Atrás do conteúdo (.hero-content tem z-index 2) */
+  z-index: 1; /* Fica atrás do container que tem z-index: 2 */
   pointer-events: none; /* Não interfere no clique ou seleção de texto */
-  opacity: 0.8; /* Ajustado para 0.8 para aparecer bem no celular */
+  opacity: 0.8; /* Ajustado para aparecer bem no celular */
   display: block; /* Evita bordas/margens fantasmas no canvas */
   transform: translateZ(0); /* Força o uso da Placa de Vídeo em dispositivos móveis */
 }
