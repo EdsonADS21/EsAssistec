@@ -453,7 +453,7 @@ a {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: 2.25rem;
+  font-size: clamp(1.65rem, 5vw, 2.25rem);
   font-weight: 800;
   color: var(--text-heading);
   margin-top: 0.25rem;
@@ -530,7 +530,7 @@ a {
 
 .project-title {
   font-family: var(--font-heading);
-  font-size: 1.85rem;
+  font-size: clamp(1.4rem, 4.5vw, 1.85rem);
   font-weight: 700;
   color: var(--text-heading);
   line-height: 1.25;
@@ -623,6 +623,10 @@ a {
   font-size: 0.65rem;
   color: #64748b;
   font-family: monospace;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .laptop-screen {
@@ -838,6 +842,7 @@ a {
 .contact-info-text {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .info-label {
@@ -850,6 +855,7 @@ a {
   font-size: 0.95rem;
   font-weight: 600;
   color: #ffffff;
+  overflow-wrap: anywhere;
 }
 
 .quick-response-card {
@@ -869,6 +875,11 @@ a {
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  min-width: 0;
+}
+
+.quick-response-header > div {
+  min-width: 0;
 }
 
 .quick-response-icon {
@@ -1353,4 +1364,77 @@ a {
   opacity: 0.8; /* Ajustado para aparecer bem no celular */
   display: block; /* Evita bordas/margens fantasmas no canvas */
   transform: translateZ(0); /* Força o uso da Placa de Vídeo em dispositivos móveis */
+}
+
+/* ==============================================================================
+   15. REFINO PARA CELULARES PEQUENOS (≤480px)
+   ============================================================================== */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-section {
+    padding-top: 120px;
+    padding-bottom: 56px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.1rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .btn-lg {
+    padding: 0.8rem 1.25rem;
+  }
+
+  .project-card, .project-card-reverse {
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+  }
+
+  .laptop-device { width: 100%; }
+  .laptop-screen { height: 150px; }
+  .mobile-device { width: 78px; }
+  .mobile-screen { height: 130px; }
+
+  .feature-dark-card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .contact-info-card {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .quick-response-card {
+    padding: 1.5rem;
+  }
+
+  .btn-quick-wa {
+    width: 100%;
+  }
+
+  .modal-card {
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
 }
