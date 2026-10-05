@@ -1,7 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
-  <!-- Google tag (Google Ads) -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="ES Assistec: sites institucionais, landing pages e soluções sob medida. Design e desenvolvimento para transformar a presença digital do seu negócio." />
+  <meta name="theme-color" content="#090f1e" />
+  <meta property="og:title" content="ES Assistec — Sua próxima fase começa no digital" />
+  <meta property="og:description" content="Design, desenvolvimento e soluções sob medida para dar vida às suas ideias." />
+  <meta property="og:type" content="website" />
+  <title>ES Assistec — Design, Desenvolvimento &amp; Soluções Digitais</title>
+  <link rel="icon" type="image/svg+xml" href="/assents/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assents/style.css?v=4.2" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18417801028"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -9,502 +21,132 @@
     gtag('js', new Date());
     gtag('config', 'AW-18417801028');
   </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Portfólio de Soluções Web, Landing Pages de Alta Conversão e Ferramentas Customizadas." />
-  <title>ES Assistec — Soluções Web &amp; Desenvolvimento</title>
-
-  <!-- Favicon SVG -->
-  <link rel="icon" type="image/svg+xml" href="/assents/logo.svg" />
-
-  <!-- Google Fonts: Inter & Outfit -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-  <!-- Folha de Estilos Customizada (Com quebra de cache v3.0) -->
-  <link rel="stylesheet" href="/assents/style.css?v=3.0"/>
+  <script src="/assents/script.js?v=4.1" defer></script>
 </head>
-<body class="bg-slate-50 text-slate-800">
-
-  <!-- ========================================================= -->
-  <!-- 1. ANIMAÇÃO DE ABERTURA COM A LOGO (INTRO SPLASH)         -->
-  <!-- ========================================================= -->
-  <div id="intro-splash" class="intro-splash-overlay" aria-hidden="true">
-    <div class="intro-splash-glow"></div>
-    <div class="intro-splash-logo">
-      <img src="/assents/logo.svg" alt="ES Assistec" class="intro-logo-img" />
-    </div>
-  </div>
-
-  <!-- ========================================================= -->
-  <!-- 2. CABEÇALHO / NAVBAR DESKTOP & MOBILE                    -->
-  <!-- ========================================================= -->
+<body>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12" /></symbol>
+    <symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18" /></symbol>
+    <symbol id="icon-screen" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8m-4-4v4M3 8h18" /></symbol>
+    <symbol id="icon-bolt" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-8l1-7Z" /></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></symbol>
+    <!-- WhatsApp icon: Bootstrap Icons (MIT), see assents/bootstrap-icons-LICENSE.txt. -->
+    <symbol id="icon-whatsapp" viewBox="0 0 16 16"><path fill="currentColor" stroke="none" d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" /></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.5 6.5h.01" /></symbol>
+  </svg>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header id="main-header" class="site-header">
     <div class="container nav-container">
-      
-      <!-- Marca / Logo -->
-      <a href="#inicio" class="nav-brand" aria-label="Página Inicial">
-        <div class="nav-logo-box">
-          <img src="/assents/logo.svg" alt="Logo ES Assistec" class="nav-logo-img" />
-        </div>
-        <span class="nav-brand-title">ES Assistec</span>
-      </a>
-
-      <!-- Botão Hambúrguer Mobile -->
-      <button type="button" id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
-        <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
-      </button>
-
-      <!-- Menu Principal (Desktop & Gaveta Mobile) -->
-      <nav id="nav-menu" class="nav-menu" aria-label="Navegação Principal">
-        <a href="#inicio" class="nav-link active">Início</a>
-        <a href="#projetos" class="nav-link">Projetos</a>
-        <a href="#diferenciais" class="nav-link">Diferenciais</a>
-        <a href="#contato" class="nav-link">Contato</a>
-        <button type="button" id="open-contact-btn" class="btn btn-primary btn-sm nav-cta-btn">
-          Fale Conosco
-        </button>
+      <a href="#inicio" class="nav-brand" aria-label="ES Assistec — início"><img src="/assents/logo.svg" alt="" width="38" height="38" /><span>ES <strong>Assistec</strong><small>DESIGN &amp; TECNOLOGIA</small></span></a>
+      <button id="mobile-menu-btn" class="mobile-menu-toggle" type="button" aria-label="Abrir menu de navegação" aria-controls="nav-menu" aria-expanded="false"><span></span><span></span></button>
+      <nav id="nav-menu" class="nav-menu" aria-label="Navegação principal">
+        <a class="nav-link" href="#servicos">Soluções</a><a class="nav-link" href="#projetos">Projetos</a><a class="nav-link" href="#metodo">Nosso processo</a><a class="nav-link" href="#faq">Dúvidas</a>
+        <a class="btn btn-primary nav-cta" href="#contato">Vamos conversar <svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></a>
       </nav>
-
     </div>
   </header>
-
-  <!-- Overlay de fundo para o menu mobile -->
-  <div id="mobile-backdrop" class="mobile-menu-backdrop" aria-hidden="true"></div>
-
-  <main>
-    <!-- ======================================================= -->
-    <!-- 3. SEÇÃO HERO                                           -->
-    <!-- ======================================================= -->
-    <section id="inicio" class="hero-section">
-      <div class="hero-bg-grid"></div>
-
-      <!-- LOGO MARCA D'ÁGUA ADICIONADA AQUI -->
-      <img src="/assents/images/logo-bg.png" alt="Logo Fundo" class="hero-bg-logo" aria-hidden="true" />
-      
-      <div class="container hero-content text-center">
-        <div class="badge-chip">
-          <i class="fa-solid fa-wand-magic-sparkles text-brand-blue"></i>
-          <span>Desenvolvimento Web &amp; Soluções Customizadas</span>
+  <main id="conteudo">
+    <section id="inicio" class="hero-section" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow hero-eyebrow"><span class="status-dot"></span> IDEIAS REAIS. POSSIBILIDADES DIGITAIS.</span>
+          <h1 id="hero-title">Sua próxima fase<br />começa com uma<br /><span class="text-gradient">presença digital<br />extraordinária.</span></h1>
+          <p>Unimos design, desenvolvimento e tecnologia para transformar sua ideia em um site que conecta, impressiona e abre novas oportunidades.</p>
+          <div class="hero-actions"><a href="#contato" class="btn btn-primary">Tirar meu projeto do papel <svg aria-hidden="true" class="icon"><use href="#icon-arrow" /></svg></a><a href="#projetos" class="btn btn-outline">Explorar projetos <svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></a></div>
+          <div class="hero-note"><span class="note-line"></span> Seu negócio tem uma história. Vamos colocá-la no digital.</div>
         </div>
-
-        <h1 class="hero-title">
-          Construindo experiências digitais com <span class="text-gradient">elegância, precisão e velocidade</span>.
-        </h1>
-
-        <p class="hero-subtitle">
-          Criamos landing pages de alta conversão, sites institucionais modernos e extensões corporativas sob medida para alavancar a produtividade do seu negócio.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#projetos" class="btn btn-primary btn-lg">
-            <span>Ver Projetos</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-          <a href="https://wa.me/5531993182624?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20projeto." target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">
-            <i class="fa-brands fa-whatsapp text-brand-blue"></i>
-            <span>Solicitar Orçamento</span>
-          </a>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-grid"></div><div class="orbit orbit-outer"></div><div class="orbit orbit-middle"></div><div class="orbit orbit-inner"></div>
+          <div class="orbital-dot dot-one"></div><div class="orbital-dot dot-two"></div><div class="orbital-dot dot-three"></div>
+          <div class="brand-core"><img src="/assents/logo.svg" alt="" width="180" height="180" /><span>ES ASSISTEC</span></div>
+          <div class="art-label label-design"><svg aria-hidden="true" class="icon"><use href="#icon-screen" /></svg><span>Design que conecta</span><span class="label-spark"></span></div>
+          <div class="art-label label-code"><svg aria-hidden="true" class="icon"><use href="#icon-code" /></svg><span>Tecnologia que resolve</span></div>
+          <div class="art-caption"><span>DA IDEIA À EXPERIÊNCIA</span><span>01 — ∞</span></div>
         </div>
       </div>
+      <div class="container hero-bottom"><a href="#servicos" class="scroll-cue"><span class="scroll-mark">↓</span> Conheça a ES Assistec</a><div class="hero-specialties"><span>Sites institucionais</span><span>Landing pages</span><span>Soluções sob medida</span></div></div>
     </section>
-
-    <!-- ======================================================= -->
-    <!-- 4. SEÇÃO DE PROJETOS                                    -->
-    <!-- ======================================================= -->
-    <section id="projetos" class="projects-section">
-      
-      <!-- CANVAS DA ANIMAÇÃO MOVIDO PARA CÁ -->
-      <canvas id="projetos-wave-canvas"></canvas>
-
-      <!-- z-index 2 aplicado para o conteúdo ficar por cima da animação -->
-      <div class="container" style="position: relative; z-index: 2;">
-        
-        <div class="section-header" data-reveal>
-          <div>
-            <span class="section-tag">Portfólio em Destaque</span>
-            <h2 class="section-title">Nossos Trabalhos Recentes</h2>
-          </div>
-          <p class="section-desc">
-            Cada projeto é concebido unindo design responsivo, alta usabilidade e arquitetura de código otimizada.
-          </p>
+    <div class="capabilities-strip" aria-label="Nossas especialidades"><div class="container"><span>DESIGN COM PROPÓSITO</span><span class="strip-star" aria-hidden="true">✳</span><span>CÓDIGO BEM CONSTRUÍDO</span><span class="strip-star" aria-hidden="true">✳</span><span>EXPERIÊNCIAS QUE CONECTAM</span><span class="strip-star" aria-hidden="true">✳</span><span>SEU PRÓXIMO PASSO</span></div></div>
+    <section id="servicos" class="section services-section">
+      <div class="container">
+        <div class="section-heading" data-reveal><div><span class="eyebrow">01 / O QUE FAZEMOS</span><h2>Seu desafio.<br /><span class="muted-heading">Nossa próxima criação.</span></h2></div><p>Da primeira impressão à rotina da sua equipe, construímos soluções digitais pensadas para o que seu negócio precisa.</p></div>
+        <div class="services-grid">
+          <article class="service-card" data-reveal><div class="card-top"><svg aria-hidden="true" class="icon service-icon"><use href="#icon-screen" /></svg><span class="card-number">01</span></div><h3>Sites institucionais</h3><p>Uma presença profissional que traduz sua marca, apresenta seus serviços e facilita o contato com novos clientes.</p><div class="service-tags"><span>Identidade da marca</span><span>Responsividade</span><span>SEO técnico</span></div><a href="#contato" class="text-link" data-service="Site institucional">Quero um site profissional <svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></a></article>
+          <article class="service-card" data-reveal><div class="card-top"><svg aria-hidden="true" class="icon service-icon"><use href="#icon-bolt" /></svg><span class="card-number">02</span></div><h3>Landing pages</h3><p>Uma página com um objetivo claro: apresentar sua oferta e conduzir o visitante ao próximo passo da sua campanha.</p><div class="service-tags"><span>Campanhas</span><span>WhatsApp</span><span>Captação de contatos</span></div><a href="#contato" class="text-link" data-service="Landing page">Quero destacar minha oferta <svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></a></article>
+          <article class="service-card" data-reveal><div class="card-top"><svg aria-hidden="true" class="icon service-icon"><use href="#icon-code" /></svg><span class="card-number">03</span></div><h3>Soluções sob medida</h3><p>Extensões e ferramentas para simplificar tarefas repetitivas, conectar processos e facilitar o dia a dia da sua equipe.</p><div class="service-tags"><span>Automação</span><span>Extensões</span><span>Produtividade</span></div><a href="#contato" class="text-link" data-service="Solução sob medida">Quero otimizar minha rotina <svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></a></article>
         </div>
-
-        <div class="projects-list">
-
-          <!-- PROJETO 1: BELLA MARES -->
+        <div id="diferenciais" class="principles-row" data-reveal><p><svg aria-hidden="true" class="icon"><use href="#icon-check" /></svg> Design adaptado à sua marca</p><p><svg aria-hidden="true" class="icon"><use href="#icon-check" /></svg> Cuidado em cada tamanho de tela</p><p><svg aria-hidden="true" class="icon"><use href="#icon-check" /></svg> Comunicação em cada etapa</p></div>
+      </div>
+    </section>
+    <section id="projetos" class="section projects-section">
+      <div class="container">
+        <div class="section-heading" data-reveal><div><span class="eyebrow">02 / PROJETOS SELECIONADOS</span><h2>Ideias que já<br /><span class="muted-heading">ganharam vida.</span></h2></div><p>Contextos diferentes. O mesmo cuidado com design, experiência e desenvolvimento. Explore alguns dos nossos trabalhos.</p></div>
+        <div class="projects-grid">
           <article class="project-card" data-reveal>
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="tag tag-blue">Landing Page</span>
-                <span class="tag">Turismo &amp; Hospedagem</span>
-              </div>
-              <h3 class="project-title">Bella Mares — Refúgio a Passos do Mar</h3>
-              <p class="project-description">
-                Landing page imersiva desenvolvida para aluguel de temporada em Cabo Frio - RJ. Desenvolvida com design moderno em azul profundo, tipografia clean, galeria de acomodações e botão de conversão direta via Airbnb e WhatsApp.
-              </p>
-              
-              <div class="project-action-area">
-                <a href="https://dunnasbellamares.com.br" target="_blank" rel="noopener noreferrer" class="link-external">
-                  <span>Visitar site ao vivo</span>
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="project-showcase">
-              <div class="laptop-device">
-                <div class="laptop-top-bar">
-                  <div class="window-dots">
-                    <span class="dot dot-red"></span>
-                    <span class="dot dot-yellow"></span>
-                    <span class="dot dot-green"></span>
-                  </div>
-                  <span class="browser-address">dunnasbellamares.com.br</span>
-                </div>
-                <div class="laptop-screen">
-                  <img src="/assents/images/dunnasbellamares.png" alt="Preview Desktop do Site Bella Mares" class="preview-img" />
-                </div>
-                <div class="laptop-chassis"></div>
-              </div>
-
-              <div class="mobile-device mobile-floating">
-                <div class="mobile-notch"></div>
-                <div class="mobile-screen">
-                  <img src="/assents/images/dunnasbellamares-mobile.png" alt="Preview Mobile do Site Bella Mares" class="preview-img" />
-                </div>
-              </div>
-            </div>
+            <a class="project-visual project-beach" href="https://dunnasbellamares.com.br" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site Bella Mares"><span class="project-type">LANDING PAGE · HOSPEDAGEM</span><div class="browser-frame"><div class="browser-bar"><span class="browser-dots">● ● ●</span><span>dunnasbellamares.com.br</span><span>↗</span></div><img src="/assents/images/dunnasbellamares.png" alt="Site Bella Mares com apresentação das acomodações em Cabo Frio" loading="lazy" width="1000" height="680" /></div><div class="phone-frame"><img src="/assents/images/dunnasbellamares-mobile.png" alt="Versão do site Bella Mares para celular" loading="lazy" width="200" height="390" /></div><span class="project-visual-arrow" aria-hidden="true"><svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></span></a>
+            <div class="project-info"><div><h3>Bella Mares</h3><span>Uma experiência a passos do mar.</span></div><a href="https://dunnasbellamares.com.br" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Abrir site Bella Mares"><svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></a></div><p class="project-description">Uma página para aluguel de temporada em Cabo Frio, com apresentação das acomodações e acesso direto ao Airbnb e WhatsApp.</p>
           </article>
-
-          <!-- PROJETO 2: ESTÉTICA AUTOMOTIVA MILAGRES -->
-          <article class="project-card project-card-reverse" data-reveal>
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="tag tag-blue">Site Institucional</span>
-                <span class="tag">Estética Automotiva</span>
-              </div>
-              <h3 class="project-title">Estética Automotiva Milagres</h3>
-              <p class="project-description">
-                Página institucional com visual dark premium sofisticado, destacando serviços de retoque, micropintura e polimento técnico em Florestal - MG. Estrutura focada em geração de leads comerciais com alta taxa de conversão.
-              </p>
-              
-              <div class="project-action-area">
-                <a href="https://millagres.com.br/" target="_blank" rel="noopener noreferrer" class="link-external">
-                  <span>Visitar site ao vivo</span>
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="project-showcase">
-              <div class="laptop-device">
-                <div class="laptop-top-bar">
-                  <div class="window-dots">
-                    <span class="dot dot-red"></span>
-                    <span class="dot dot-yellow"></span>
-                    <span class="dot dot-green"></span>
-                  </div>
-                  <span class="browser-address">milagres.com.br</span>
-                </div>
-                <div class="laptop-screen">
-                  <img src="/assents/images/esteticamillagres.png" alt="Preview Desktop do Site Estética Milagres" class="preview-img" />
-                </div>
-                <div class="laptop-chassis"></div>
-              </div>
-
-              <div class="mobile-device mobile-floating mobile-floating-alt">
-                <div class="mobile-notch"></div>
-                <div class="mobile-screen">
-                  <img src="/assents/images/millagres-mobile.png" alt="Preview Mobile do Site Estética Milagres" class="preview-img" />
-                </div>
-              </div>
-            </div>
+          <article class="project-card" data-reveal>
+            <a class="project-visual project-auto" href="https://millagres.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site Estética Automotiva Milagres"><span class="project-type">SITE INSTITUCIONAL · AUTOMOTIVO</span><div class="browser-frame"><div class="browser-bar"><span class="browser-dots">● ● ●</span><span>millagres.com.br</span><span>↗</span></div><img src="/assents/images/esteticamillagres.png" alt="Site Estética Automotiva Milagres com visual escuro e seus serviços" loading="lazy" width="1000" height="680" /></div><div class="phone-frame"><img src="/assents/images/millagres-mobile.png" alt="Versão do site Milagres para celular" loading="lazy" width="200" height="390" /></div><span class="project-visual-arrow" aria-hidden="true"><svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></span></a>
+            <div class="project-info"><div><h3>Estética Automotiva Milagres</h3><span>Precisão nos detalhes. Também no digital.</span></div><a href="https://millagres.com.br/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Abrir site Milagres"><svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></a></div><p class="project-description">Site com visual sofisticado para apresentar serviços de estética automotiva em Florestal e facilitar novas solicitações de orçamento.</p>
           </article>
-
-          <!-- PROJETO 3: AUTO PREENCHER - BR SUPER -->
-          <article class="project-card project-card-dark" data-reveal>
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="tag tag-cyan">Extensão de Navegador</span>
-                <span class="tag tag-dark">Produtividade Operacional</span>
-              </div>
-              
-              <h3 class="project-title text-white1">Auto Preencher — Br Super</h3>
-              
-              <p class="project-description text-slate-300">
-                Extensão criada para facilitar preenchimentos de scripts de registro de atendimento. Acelera os processos do time de suporte com preenchimento automatizado de ordens, atalhos de rede (LOS, PON, Roteadores) e painel integrado com Copiloto IA.
-              </p>
-
-              <div class="internal-software-badge">
-                <i class="fa-solid fa-desktop text-cyan-400"></i>
-                <span>Software de uso interno corporativo (Exclusivo para Desktop / Navegador)</span>
-              </div>
-            </div>
-
-            <div class="project-showcase showcase-full-desktop">
-              <div class="laptop-device laptop-dark">
-                <div class="laptop-top-bar bar-dark">
-                  <div class="window-dots">
-                    <span class="dot dot-red"></span>
-                    <span class="dot dot-yellow"></span>
-                    <span class="dot dot-green"></span>
-                  </div>
-                  <span class="browser-address font-mono">painel.brsuper.local/extensao</span>
-                </div>
-                <div class="laptop-screen screen-dark">
-                  <img src="/assents/images/extensãobrsuper.png" alt="Interface da Extensão Auto Preencher para Br Super" class="preview-img" />
-                </div>
-                <div class="laptop-chassis chassis-dark"></div>
-              </div>
-            </div>
-          </article>
-
+          <article class="project-card project-wide" data-reveal><div class="project-wide-copy"><span class="eyebrow">EXTENSÃO DE NAVEGADOR · PRODUTIVIDADE</span><h3>Menos tarefas repetitivas.<br />Mais tempo para resolver.</h3><p>O Auto Preencher, desenvolvido para a Br Super, facilita os registros de atendimento com preenchimento automatizado, atalhos de rede e painel integrado.</p><span class="internal-label"><span class="status-dot"></span> Projeto de uso interno corporativo</span><a href="#contato" class="text-link" data-service="Solução sob medida">Vamos criar sua solução <svg aria-hidden="true" class="icon"><use href="#icon-arrow" /></svg></a></div><div class="extension-preview"><div class="browser-frame"><div class="browser-bar"><span class="browser-dots">● ● ●</span><span>Auto Preencher / Br Super</span><svg aria-hidden="true" class="icon"><use href="#icon-code" /></svg></div><img src="/assents/images/extensãobrsuper.png" alt="Painel da extensão Auto Preencher para registros de atendimento da Br Super" loading="lazy" width="1000" height="680" /></div></div></article>
         </div>
       </div>
     </section>
-
-    <!-- ======================================================= -->
-    <!-- 5. SEÇÃO DE DIFERENCIAIS (6 CARDS DESIGN DARK)          -->
-    <!-- ======================================================= -->
-    <section id="diferenciais" class="features-section">
+    <section id="metodo" class="section method-section">
       <div class="container">
-        
-        <div class="section-center-header" data-reveal>
-          <h2 class="section-title-large text-white1">
-            Como um site <span class="text-gradient">profissional</span> ajuda seu negócio?
-          </h2>
-          <p class="section-subtitle-dark">
-            Investir em presença digital não é gasto, é investimento com retorno real.
-          </p>
-        </div>
-
-        <div class="features-dark-grid">
-          
-          <div class="feature-dark-card" data-reveal>
-            <div class="feature-dark-icon">
-              <i class="fa-solid fa-shield-halved text-blue-400"></i>
-            </div>
-            <h3 class="feature-dark-title">Mais Credibilidade</h3>
-            <p class="feature-dark-text">Passe confiança e profissionalismo para seus clientes com um site bem estruturado.</p>
+        <div class="section-heading" data-reveal><div><span class="eyebrow">03 / COMO TRABALHAMOS</span><h2>Um bom projeto<br />começa com <span class="text-gradient">clareza.</span></h2></div><p>Você participa da construção. Nós organizamos o caminho, da primeira conversa até a entrega.</p></div>
+        <div class="method-layout" data-reveal>
+          <div class="method-tabs" role="tablist" aria-label="Etapas do projeto" aria-orientation="vertical">
+            <button id="step-tab-1" class="method-tab" role="tab" aria-selected="true" aria-controls="step-panel-1" tabindex="0"><span>01</span><span>Entender<small>Seu negócio é o ponto de partida.</small></span><svg aria-hidden="true" class="icon"><use href="#icon-arrow" /></svg></button>
+            <button id="step-tab-2" class="method-tab" role="tab" aria-selected="false" aria-controls="step-panel-2" tabindex="-1"><span>02</span><span>Planejar<small>Uma direção para cada decisão.</small></span><svg aria-hidden="true" class="icon"><use href="#icon-arrow" /></svg></button>
+            <button id="step-tab-3" class="method-tab" role="tab" aria-selected="false" aria-controls="step-panel-3" tabindex="-1"><span>03</span><span>Construir<small>Design e código trabalhando juntos.</small></span><svg aria-hidden="true" class="icon"><use href="#icon-arrow" /></svg></button>
+            <button id="step-tab-4" class="method-tab" role="tab" aria-selected="false" aria-controls="step-panel-4" tabindex="-1"><span>04</span><span>Entregar<small>Pronto para o próximo passo.</small></span><svg aria-hidden="true" class="icon"><use href="#icon-arrow" /></svg></button>
           </div>
-
-          <div class="feature-dark-card" data-reveal>
-            <div class="feature-dark-icon">
-              <i class="fa-regular fa-clock text-blue-400"></i>
-            </div>
-            <h3 class="feature-dark-title">Vendas 24h</h3>
-            <p class="feature-dark-text">Seu negócio funcionando mesmo enquanto você dorme, gerando leads e vendas.</p>
+          <div class="method-panels">
+            <div id="step-panel-1" class="method-panel" role="tabpanel" aria-labelledby="step-tab-1" tabindex="0"><span class="panel-step">ETAPA 01 / DESCOBERTA</span><span class="panel-watermark" aria-hidden="true">01</span><svg aria-hidden="true" class="icon panel-icon"><use href="#icon-mail" /></svg><h3>Antes do código,<br />uma boa conversa.</h3><p>Conhecemos seu negócio, seu público e o que você quer alcançar. Entendemos as necessidades do projeto para propor uma solução que faça sentido para você.</p><div class="panel-tags"><span>Briefing</span><span>Objetivos</span><span>Público</span></div></div>
+            <div id="step-panel-2" class="method-panel" role="tabpanel" aria-labelledby="step-tab-2" tabindex="0" hidden><span class="panel-step">ETAPA 02 / DIREÇÃO</span><span class="panel-watermark" aria-hidden="true">02</span><svg aria-hidden="true" class="icon panel-icon"><use href="#icon-screen" /></svg><h3>Cada elemento<br />tem um propósito.</h3><p>Organizamos o conteúdo, a navegação e a direção visual. Alinhamos escopo, prioridades e prazo na proposta, para que você saiba o que será construído.</p><div class="panel-tags"><span>Estrutura</span><span>Design</span><span>Escopo</span></div></div>
+            <div id="step-panel-3" class="method-panel" role="tabpanel" aria-labelledby="step-tab-3" tabindex="0" hidden><span class="panel-step">ETAPA 03 / DESENVOLVIMENTO</span><span class="panel-watermark" aria-hidden="true">03</span><svg aria-hidden="true" class="icon panel-icon"><use href="#icon-code" /></svg><h3>Sua ideia começa<br />a ganhar forma.</h3><p>Transformamos o planejamento em uma experiência funcional. Desenvolvemos as páginas e integrações previstas e compartilhamos o progresso para alinhar os detalhes.</p><div class="panel-tags"><span>Desenvolvimento</span><span>Responsividade</span><span>Integrações</span></div></div>
+            <div id="step-panel-4" class="method-panel" role="tabpanel" aria-labelledby="step-tab-4" tabindex="0" hidden><span class="panel-step">ETAPA 04 / ENTREGA</span><span class="panel-watermark" aria-hidden="true">04</span><svg aria-hidden="true" class="icon panel-icon"><use href="#icon-check" /></svg><h3>Cuidado até<br />o último detalhe.</h3><p>Conferimos a navegação, os formulários e a apresentação em diferentes telas. Após sua aprovação, organizamos a publicação e as orientações de uso conforme o escopo contratado.</p><div class="panel-tags"><span>Validação</span><span>Aprovação</span><span>Publicação</span></div></div>
           </div>
-
-          <div class="feature-dark-card" data-reveal>
-            <div class="feature-dark-icon">
-              <i class="fa-solid fa-magnifying-glass text-blue-400"></i>
-            </div>
-            <h3 class="feature-dark-title">Aparição no Google</h3>
-            <p class="feature-dark-text">Seja encontrado por quem realmente procura seus serviços com SEO otimizado.</p>
-          </div>
-
-          <div class="feature-dark-card" data-reveal>
-            <div class="feature-dark-icon">
-              <i class="fa-solid fa-palette text-blue-400"></i>
-            </div>
-            <h3 class="feature-dark-title">Identidade Visual Forte</h3>
-            <p class="feature-dark-text">Mostre a cara da sua marca com clareza, impacto e diferenciação.</p>
-          </div>
-
-          <div class="feature-dark-card" data-reveal>
-            <div class="feature-dark-icon">
-              <i class="fa-solid fa-database text-blue-400"></i>
-            </div>
-            <h3 class="feature-dark-title">Centralização das Informações</h3>
-            <p class="feature-dark-text">Tudo do seu negócio em um só lugar, organizado e acessível.</p>
-          </div>
-
-          <div class="feature-dark-card" data-reveal>
-            <div class="feature-dark-icon">
-              <i class="fa-solid fa-users text-blue-400"></i>
-            </div>
-            <h3 class="feature-dark-title">Mais Clientes</h3>
-            <p class="feature-dark-text">Atraia novos contatos de forma automática e escale seu negócio.</p>
-          </div>
-
         </div>
       </div>
     </section>
-
-    <!-- ======================================================= -->
-    <!-- 6. SEÇÃO CONTATO (HUB DE ATENDIMENTO)                   -->
-    <!-- ======================================================= -->
-    <section id="contato" class="contact-section">
-      <div class="container">
-        
-        <div class="section-center-header" data-reveal>
-          <span class="section-tag-cyan">CONTATO</span>
-          <h2 class="hero-title">
-            Nossos Canais de <span class="text-gradient">Atendimento</span>
-          </h2>
-          <p class="section-subtitle-dark">
-            Solicite um orçamento e descubra como podemos te ajudar a ter um site profissional que converte!
-          </p>
+    <section id="faq" class="section faq-section">
+      <div class="container faq-layout">
+        <div class="faq-heading" data-reveal><span class="eyebrow">04 / PERGUNTAS FREQUENTES</span><h2>Vamos deixar<br />tudo <span class="text-gradient">mais claro.</span></h2><p>Ainda tem alguma dúvida? Conte com a gente para entender o próximo passo.</p><a class="text-link" href="#contato">Conversar sobre meu projeto <svg aria-hidden="true" class="icon"><use href="#icon-arrow" /></svg></a></div>
+        <div class="faq-list" data-reveal>
+          <details open><summary>Qual solução faz mais sentido para meu negócio?<span aria-hidden="true">+</span></summary><p>Um site institucional apresenta sua empresa e seus serviços. Uma landing page concentra uma oferta ou campanha. Já uma solução sob medida atende a uma necessidade específica da sua operação. Na primeira conversa, avaliamos seu cenário juntos.</p></details>
+          <details><summary>Quanto custa desenvolver um projeto?<span aria-hidden="true">+</span></summary><p>O valor depende da quantidade de páginas, funcionalidades, integrações e conteúdo. Depois de entender sua necessidade, enviamos uma proposta com escopo e condições para você avaliar.</p></details>
+          <details><summary>Qual é o prazo de entrega?<span aria-hidden="true">+</span></summary><p>O prazo é definido na proposta, considerando a complexidade do projeto e a disponibilidade de textos, imagens e aprovações. As etapas são alinhadas antes do início do desenvolvimento.</p></details>
+          <details><summary>Meu site vai funcionar no celular?<span aria-hidden="true">+</span></summary><p>Sim. Os sites e landing pages são desenvolvidos com layout responsivo para celular, tablet e computador. Ferramentas internas e extensões têm seus dispositivos de uso definidos no escopo.</p></details>
+          <details><summary>Já tenho um site. Vocês podem reformulá-lo?<span aria-hidden="true">+</span></summary><p>Podemos avaliar seu site atual e propor melhorias na estrutura, no visual e nas funcionalidades. Envie o endereço e conte o que você gostaria de mudar.</p></details>
+          <details><summary>Como começamos?<span aria-hidden="true">+</span></summary><p>Preencha o formulário abaixo ou fale direto pelo WhatsApp. Conte um pouco sobre sua empresa e sua ideia; a partir daí, alinhamos os próximos passos.</p></details>
         </div>
-
-        <div class="contact-hub-grid" data-reveal>
-          
-          <a href="https://wa.me/5531993182624" target="_blank" rel="noopener noreferrer" class="contact-info-card">
-            <div class="contact-info-icon">
-              <i class="fa-brands fa-whatsapp text-blue-400"></i>
-            </div>
-            <div class="contact-info-text">
-              <span class="info-label">WhatsApp</span>
-              <span class="info-val">(31) 9 9318-2624</span>
-            </div>
-          </a>
-
-          <a href="https://instagram.com/es_assistec" target="_blank" rel="noopener noreferrer" class="contact-info-card">
-            <div class="contact-info-icon">
-              <i class="fa-brands fa-instagram text-blue-400"></i>
-            </div>
-            <div class="contact-info-text">
-              <span class="info-label">Instagram</span>
-              <span class="info-val">@es_assistec</span>
-            </div>
-          </a>
-
-          <a href="mailto:contatoedsonpr@gmail.com" class="contact-info-card">
-            <div class="contact-info-icon">
-              <i class="fa-solid fa-envelope text-blue-400"></i>
-            </div>
-            <div class="contact-info-text">
-              <span class="info-label">E-mail</span>
-              <span class="info-val">contatoedsonpr@gmail.com</span>
-            </div>
-          </a>
-
-          <div class="quick-response-card">
-            <div class="quick-response-header">
-              <div class="quick-response-icon">
-                <i class="fa-solid fa-bolt text-blue-400"></i>
-              </div>
-              <div>
-                <h4 class="quick-response-title">Resposta Rápida</h4>
-                <p class="quick-response-desc">Prefere uma resposta imediata? Chame direto no WhatsApp!</p>
-              </div>
-            </div>
-            <a href="https://wa.me/5531993182624?text=Ol%C3%A1!%20Gostaria%20de%20um%20atendimento%20r%C3%A1pido." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-quick-wa">
-              Chamar no WhatsApp
-            </a>
-          </div>
-
-        </div>
+      </div>
+    </section>
+    <section id="contato" class="section contact-section">
+      <div class="container contact-layout">
+        <div class="contact-copy" data-reveal><span class="eyebrow">05 / VAMOS CRIAR JUNTOS</span><h2>Grandes projetos<br />começam com<br /><span class="text-gradient">um “olá”.</span></h2><p>Conte sua ideia, seu desafio ou aquele projeto que ainda está no papel. Vamos descobrir o próximo passo para o seu negócio.</p><a class="contact-channel" href="https://wa.me/5531993182624" rel="noopener noreferrer"><svg aria-hidden="true" class="icon"><use href="#icon-whatsapp" /></svg><span><small>CHAME NO WHATSAPP</small><strong>(31) 99318-2624</strong></span><svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></a><a class="contact-channel" href="mailto:contatoedsonpr@gmail.com"><svg aria-hidden="true" class="icon"><use href="#icon-mail" /></svg><span><small>PREFERE UM E-MAIL?</small><strong>contatoedsonpr@gmail.com</strong></span><svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></a><a class="instagram-link" href="https://instagram.com/es_assistec" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" class="icon"><use href="#icon-instagram" /></svg> Acompanhe a ES Assistec <span>@es_assistec ↗</span></a></div>
+        <form id="contact-form" class="contact-form" data-reveal>
+          <div class="form-heading"><h3>Qual é a sua próxima ideia?</h3><p>Preencha e continue a conversa no WhatsApp.</p></div>
+          <div class="form-row"><div class="form-field"><label for="name">Seu nome <span>*</span></label><input id="name" name="name" type="text" autocomplete="name" placeholder="Como podemos chamar você?" maxlength="100" required /></div><div class="form-field"><label for="company">Empresa</label><input id="company" name="company" type="text" autocomplete="organization" placeholder="Nome do seu negócio" maxlength="150" /></div></div>
+          <div class="form-field"><label for="email">E-mail <span>*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="voce@empresa.com.br" maxlength="200" required /></div>
+          <fieldset class="service-options"><legend>O que você tem em mente? <span>*</span></legend><label><input type="radio" name="service" value="Site institucional" required /><span>Site institucional</span></label><label><input type="radio" name="service" value="Landing page" /><span>Landing page</span></label><label><input type="radio" name="service" value="Solução sob medida" /><span>Solução sob medida</span></label><label><input type="radio" name="service" value="Ainda não sei" /><span>Ainda não sei</span></label></fieldset>
+          <div class="form-field"><label for="message">Conte um pouco sobre seu projeto <span>*</span></label><textarea id="message" name="message" rows="4" maxlength="2000" placeholder="O que você quer criar ou melhorar?" required></textarea></div>
+          <button type="submit" class="btn btn-primary form-submit">Conversar sobre meu projeto <svg aria-hidden="true" class="icon"><use href="#icon-arrow" /></svg></button>
+          <p class="form-privacy">Ao continuar, seus dados serão incluídos em uma mensagem para você revisar e enviar pelo WhatsApp. <a href="/politica-de-privacidade.html">Política de privacidade</a>.</p>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p><a id="whatsapp-fallback" class="text-link" href="https://wa.me/5531993182624" rel="noopener noreferrer" hidden>Abrir minha mensagem no WhatsApp <svg aria-hidden="true" class="icon"><use href="#icon-external" /></svg></a>
+          <noscript><style>#contact-form .form-submit { display: none; }</style><p>Para preparar sua mensagem pelo formulário, ative o JavaScript ou <a href="https://wa.me/5531993182624" rel="noopener noreferrer">fale diretamente no WhatsApp</a>.</p></noscript>
+        </form>
       </div>
     </section>
   </main>
-
-  <!-- ========================================================= -->
-  <!-- 7. RODAPÉ (FUNDO BRANCO)                                  -->
-  <!-- ========================================================= -->
-  <footer class="site-footer-light">
-    <div class="container">
-      
-      <div class="footer-top-row">
-        <div class="footer-brand-block">
-          <div class="footer-logo-line">
-            <div class="footer-logo-box">
-              <img src="/assents/logo.svg" alt="Logo ES Assistec" class="nav-logo-img" />
-            </div>
-            <span class="footer-brand-title">ES Assistec</span>
-          </div>
-          <p class="footer-tagline">
-            Transforme suas ideias em presença digital. Sites modernos, rápidos e profissionais para destacar seu negócio.
-          </p>
-        </div>
-
-        <div class="footer-social-icons">
-          <a href="https://wa.me/5531993182624" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-          <a href="https://instagram.com/es_assistec" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a href="https://github.com/EdsonADS21" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="footer-bottom-row">
-        <p class="footer-copyright">
-          © 2026 ES Assistec - Todos os direitos reservados.
-        </p>
-        <a href="/politica-de-privacidade" class="footer-privacy-link">
-          Políticas de Privacidade
-        </a>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- ========================================================= -->
-  <!-- 8. MODAL: FORMULÁRIO FALE CONOSCO                         -->
-  <!-- ========================================================= -->
-  <div id="contact-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
-    <div class="modal-card">
-      
-      <div class="modal-header">
-        <h3 id="modal-title" class="modal-title text-white1">Fale Conosco</h3>
-        <button type="button" id="close-contact-btn" class="modal-close-btn" aria-label="Fechar janela">
-          <i class="fa-solid fa-xmark text-slate-300"></i>
-        </button>
-      </div>
-
-      <form id="contact-form" class="dark-form">
-        <div class="form-group">
-          <label for="name" class="form-label-dark">Nome</label>
-          <input type="text" id="name" name="name" class="form-input-dark" placeholder="Seu nome completo" required />
-        </div>
-
-        <div class="form-group">
-          <label for="phone" class="form-label-dark">Telefone</label>
-          <input type="tel" id="phone" name="phone" class="form-input-dark" placeholder="(00) 0 0000-0000" required />
-        </div>
-
-        <div class="form-group">
-          <label for="message" class="form-label-dark">Mensagem</label>
-          <textarea id="message" name="message" rows="4" class="form-textarea-dark" placeholder="Conte-nos sobre seu projeto..." required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-submit-full">
-          <i class="fa-solid fa-paper-plane"></i>
-          <span>Enviar Mensagem</span>
-        </button>
-      </form>
-
-    </div>
-  </div>
-  
-
-  <!-- ========================================================= -->
-  <!-- BOTÃO FLUTUANTE DO WHATSAPP                               -->
-  <!-- ========================================================= -->
-  <a href="https://wa.me/5531993182624?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20projeto."
-     target="_blank"
-     rel="noopener noreferrer"
-     class="whatsapp-float"
-     aria-label="Fale conosco pelo WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <!-- ========================================================= -->
-  <!-- THREE.JS - MALHA ONDULANTE (NOVO)                         -->
-  <!-- ========================================================= -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-
-  <!-- Script Modular (Com quebra de cache v3.0) -->
-  <script src="/assents/script.js?v=3.0" defer></script>
+  <footer class="site-footer"><div class="container"><div class="footer-main"><div class="footer-brand"><a href="#inicio" class="nav-brand"><img src="/assents/logo.svg" alt="" width="38" height="38" /><span>ES <strong>Assistec</strong><small>DESIGN &amp; TECNOLOGIA</small></span></a><p>Design com intenção.<br />Tecnologia com propósito.</p></div><div class="footer-links"><span>EXPLORE</span><a href="#servicos">Soluções</a><a href="#projetos">Projetos</a><a href="#metodo">Nosso processo</a></div><div class="footer-links"><span>VAMOS CONVERSAR</span><a href="https://wa.me/5531993182624" rel="noopener noreferrer">WhatsApp ↗</a><a href="mailto:contatoedsonpr@gmail.com">E-mail ↗</a><a href="https://instagram.com/es_assistec" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div><a class="footer-top" href="#inicio" aria-label="Voltar ao início">↑</a></div><div class="footer-bottom"><p>© <span id="current-year">2026</span> ES Assistec. Todos os direitos reservados.</p><a href="/politica-de-privacidade.html">Política de privacidade</a><span>Feito com cuidado, do design ao código.</span></div></div></footer>
+  <a class="whatsapp-float" href="https://wa.me/5531993182624?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20ES%20Assistec%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." rel="noopener noreferrer" aria-label="Falar com a ES Assistec pelo WhatsApp"><svg aria-hidden="true" class="icon"><use href="#icon-whatsapp" /></svg><span>Vamos conversar?</span></a>
 </body>
 </html>

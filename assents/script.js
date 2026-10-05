@@ -1,343 +1,101 @@
-/**
- * ==============================================================================
- * PROJETO: Portfólio & Soluções Digitais (ES Assistec)
- * ARQUIVO: script.js
- * DESCRIÇÃO: Controlador do Intro Splash, Menu Mobile, Navbar, Scroll Reveal,
- *             Rolagem Suave, Modal de Contato e Three.js.
- * ==============================================================================
- */
-
 'use strict';
 
-/**
- * 1. Controle da Animação de Abertura com a Logo
- */
-function runIntroAnimation() {
-  const intro = document.getElementById('intro-splash');
-  if (!intro) return;
+const header = document.getElementById('main-header');
+const menuButton = document.getElementById('mobile-menu-btn');
+const menu = document.getElementById('nav-menu');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  setTimeout(() => {
-    intro.classList.add('is-finished');
-    setTimeout(() => {
-      intro.remove();
-    }, 700);
-  }, 1000);
-}
-
-// Inicia a Splash Screen de forma independente
-window.addEventListener('load', runIntroAnimation);
-setTimeout(runIntroAnimation, 1800); // Fallback de segurança
-
-/**
- * 2. Sistema à prova de falhas para garantir o carregamento do Three.js
- */
-function checkAndStartThreeJS() {
-  const canvas = document.getElementById('projetos-wave-canvas');
-  if (!canvas) return; // Cancela se a tag não existir no HTML
-
-  // Verifica se a biblioteca 3D já terminou de baixar
-  if (typeof THREE === 'undefined') {
-    // Se não baixou, tenta novamente em 100 milissegundos
-    setTimeout(checkAndStartThreeJS, 100);
-  } else {
-    // A biblioteca carregou! Inicia a malha com segurança
-    initWaveBackground();
-  }
-}
-
-// Dispara a verificação inteligente
-checkAndStartThreeJS();
-
-/**
- * 3. Inicialização dos Componentes
- */
-document.addEventListener('DOMContentLoaded', () => {
-  initHeaderScroll();
-  initMobileMenu();
-  initScrollReveal();
-  initSmoothScroll();
-  initContactModal();
-});
-
-/**
- * 4. Elevação da Navbar ao rolar a página
- */
-function initHeaderScroll() {
-  const header = document.getElementById('main-header');
-  if (!header) return;
-
-  const onScroll = () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+if (menu && menuButton) {
+  header.classList.add('has-menu-control');
+  const setMenuOpen = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+    header.classList.toggle('menu-open', open);
   };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-}
-
-/**
- * 5. Controle da Navbar Mobile (Menu Hambúrguer & Gaveta)
- */
-function initMobileMenu() {
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const navMenu = document.getElementById('nav-menu');
-  const menuIcon = document.getElementById('mobile-menu-icon');
-  const backdrop = document.getElementById('mobile-backdrop');
-  const navLinks = document.querySelectorAll('.nav-link, .nav-cta-btn');
-
-  if (!menuBtn || !navMenu || !menuIcon || !backdrop) return;
-
-  const openMenu = () => {
-    navMenu.classList.add('is-active');
-    backdrop.classList.add('is-active');
-    document.body.classList.add('no-scroll');
-    menuBtn.setAttribute('aria-expanded', 'true');
-    menuIcon.classList.remove('fa-bars');
-    menuIcon.classList.add('fa-xmark');
-  };
-
-  const closeMenu = () => {
-    navMenu.classList.remove('is-active');
-    backdrop.classList.remove('is-active');
-    document.body.classList.remove('no-scroll');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    menuIcon.classList.remove('fa-xmark');
-    menuIcon.classList.add('fa-bars');
-  };
-
-  const toggleMenu = () => {
-    const isOpen = navMenu.classList.contains('is-active');
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  };
-
-  menuBtn.addEventListener('click', toggleMenu);
-  backdrop.addEventListener('click', closeMenu);
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu.classList.contains('is-active')) {
-      closeMenu();
+  menuButton.addEventListener('click', () => setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true'));
+  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && header.classList.contains('menu-open')) {
+      setMenuOpen(false);
+      menuButton.focus();
     }
   });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navMenu.classList.contains('is-active')) {
-      closeMenu();
-    }
-  });
+  document.addEventListener('click', (event) => { if (!header.contains(event.target)) setMenuOpen(false); });
+  window.matchMedia('(min-width: 901px)').addEventListener('change', (event) => { if (event.matches) setMenuOpen(false); });
 }
 
-/**
- * 6. Animação de Scroll Reveal
- */
-function initScrollReveal() {
-  const elements = document.querySelectorAll('[data-reveal]');
-  if (!elements.length) return;
+if (header) {
+  const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 24);
+  window.addEventListener('scroll', updateHeader, {passive: true});
+  updateHeader();
+}
 
-  if (!('IntersectionObserver' in window)) {
-    elements.forEach(el => el.classList.add('is-visible'));
-    return;
-  }
-
+if ('IntersectionObserver' in window && !reducedMotion.matches) {
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    rootMargin: '0px 0px -60px 0px',
-    threshold: 0.15
-  });
-
-  elements.forEach(el => observer.observe(el));
+  }, {threshold: 0.08});
+  document.querySelectorAll('[data-reveal]').forEach((element) => { element.classList.add('will-reveal'); observer.observe(element); });
 }
 
-/**
- * 7. Rolagem Suave com Compensação da Altura do Header
- */
-function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href');
-      if (targetId === '#' || targetId === '') return;
+const tabs = Array.from(document.querySelectorAll('.method-tab'));
+const selectTab = (selected, focus = false) => {
+  tabs.forEach((tab) => {
+    const active = tab === selected;
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
+  });
+  if (focus) selected.focus();
+};
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => selectTab(tab));
+  tab.addEventListener('keydown', (event) => {
+    let next;
+    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = tabs.length - 1;
+    if (next !== undefined) { event.preventDefault(); selectTab(tabs[next], true); }
+  });
+});
+document.querySelector('.method-layout')?.classList.add('has-tab-control');
 
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        const headerHeight = document.getElementById('main-header')?.offsetHeight || 70;
-        const topPosition = target.getBoundingClientRect().top + window.scrollY - (headerHeight + 10);
-
-        window.scrollTo({
-          top: topPosition,
-          behavior: 'smooth'
-        });
-      }
+const form = document.getElementById('contact-form');
+if (form) {
+  document.querySelectorAll('[data-service]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const option = Array.from(form.querySelectorAll('[name="service"]')).find((input) => input.value === link.dataset.service);
+      if (option) option.checked = true;
     });
   });
+  ['name', 'message'].forEach((id) => {
+    const input = document.getElementById(id);
+    input.addEventListener('input', () => input.setCustomValidity(input.value.trim() ? '' : 'Preencha este campo.'));
+  });
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const lines = [
+      'Olá! Vim pelo site da ES Assistec e gostaria de conversar sobre um projeto.', '',
+      `Nome: ${String(data.get('name')).trim()}`,
+      `Empresa: ${String(data.get('company') || '').trim() || 'Não informada'}`,
+      `E-mail: ${String(data.get('email')).trim()}`,
+      `Interesse: ${data.get('service')}`, '',
+      `Projeto: ${String(data.get('message')).trim()}`
+    ];
+    const url = `https://wa.me/5531993182624?text=${encodeURIComponent(lines.join('\n'))}`;
+    const fallback = document.getElementById('whatsapp-fallback');
+    fallback.href = url;
+    fallback.hidden = false;
+    document.getElementById('form-status').textContent = 'Sua mensagem está preparada. Revise e envie no WhatsApp. Se ele não abrir, use o link abaixo.';
+    // Direct navigation also works when the browser blocks pop-up windows.
+    window.location.assign(url);
+  });
 }
-
-/**
- * 8. Controle do Modal de Contato (WhatsApp)
- */
-function initContactModal() {
-  const modal = document.getElementById('contact-modal');
-  const openBtn = document.getElementById('open-contact-btn');
-  const closeBtn = document.getElementById('close-contact-btn');
-  const form = document.getElementById('contact-form');
-
-  if (!modal || !openBtn || !closeBtn) return;
-
-  const openModal = () => {
-    modal.classList.add('is-active');
-    document.body.classList.add('no-scroll');
-  };
-
-  const closeModal = () => {
-    modal.classList.remove('is-active');
-    document.body.classList.remove('no-scroll');
-  };
-
-  openBtn.addEventListener('click', openModal);
-  closeBtn.addEventListener('click', closeModal);
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('is-active')) {
-      closeModal();
-    }
-  });
-
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('name')?.value.trim() || 'Não informado';
-      const phone = document.getElementById('phone')?.value.trim() || 'Não informado';
-      const msg = document.getElementById('message')?.value.trim() || 'Nenhum detalhe adicional informado.';
-
-      const messageLines = [
-        '🚀 *NOVO CONTATO VIA SITE — ES Assistec*',
-        '━━━━━━━━━━━━━━━━━━━━━',
-        `👤 *Nome:* ${name}`,
-        `📱 *Telefone:* ${phone}`,
-        '',
-        '📝 *Mensagem:*',
-        `${msg}`,
-        '━━━━━━━━━━━━━━━━━━━━━',
-        '_Mensagem enviada pelo formulário oficial do site._'
-      ];
-
-      const fullMessage = encodeURIComponent(messageLines.join('\n'));
-      window.open(`https://wa.me/5531993182624?text=${fullMessage}`, '_blank');
-
-      form.reset();
-      closeModal();
-    });
-  }
-}
-
-/**
- * ==============================================================================
- * 9. THREE.JS - Malha Cibernética Ondulante na Seção Projetos
- * ==============================================================================
- */
-function initWaveBackground() {
-  const canvas = document.getElementById('projetos-wave-canvas');
-  if (!canvas || typeof THREE === 'undefined') return;
-
-  const targetSection = document.getElementById('projetos');
-
-  // Configuração da Cena e Câmera
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, targetSection.clientWidth / targetSection.clientHeight, 0.1, 1000);
-  camera.position.set(0, 5, 12);
-  camera.lookAt(0, 0, 0);
-
-  const renderer = new THREE.WebGLRenderer({
-    canvas: canvas,
-    alpha: true,
-    antialias: true
-  });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-  // Responsividade adaptada para Celular e para a Seção de Projetos
-  function resize() {
-    const width = targetSection.clientWidth;
-    const height = targetSection.clientHeight;
-    
-    // Passando "false" o renderer.setSize NÃO sobrescreve o CSS inline
-    renderer.setSize(width, height, false); 
-    camera.aspect = width / height;
-    
-    // Afasta a câmera no celular para a malha caber na tela vertical
-    if (width < 768) {
-      camera.position.z = 20; // Câmera mais longe
-      camera.position.y = 8;  // Câmera mais alta
-    } else {
-      camera.position.z = 12; // Padrão PC
-      camera.position.y = 5;
-    }
-    
-    camera.updateProjectionMatrix();
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  // Criação da Malha
-  const geometry = new THREE.PlaneGeometry(60, 60, 45, 45);
-  
-  // Material mais visível para o celular
-  const material = new THREE.MeshBasicMaterial({
-    color: 0x06b6d4, // Cyan
-    wireframe: true,
-    transparent: true,
-    opacity: 0.35 // Aumentado para visibilidade na cor clara da seção de projetos
-  });
-
-  const plane = new THREE.Mesh(geometry, material);
-  plane.rotation.x = -Math.PI / 2;
-  plane.position.y = -4; 
-  scene.add(plane);
-
-  const positionAttribute = geometry.attributes.position;
-  const vertexCount = positionAttribute.count;
-
-  // Loop de Animação
-  const clock = new THREE.Clock();
-  
-  function animate() {
-    requestAnimationFrame(animate);
-    const elapsedTime = clock.getElapsedTime();
-
-    for (let i = 0; i < vertexCount; i++) {
-      const x = positionAttribute.getX(i);
-      const y = positionAttribute.getY(i);
-      
-      const z = Math.sin(x * 0.2 + elapsedTime * 0.6) * 1.5 + 
-                Math.cos(y * 0.2 + elapsedTime * 0.6) * 1.5;
-                
-      positionAttribute.setZ(i, z);
-    }
-    
-    positionAttribute.needsUpdate = true;
-    plane.rotation.z = elapsedTime * 0.03;
-    renderer.render(scene, camera);
-  }
-  
-  animate();
-}
+const year = document.getElementById('current-year');
+if (year) year.textContent = new Date().getFullYear();
